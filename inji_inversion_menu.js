@@ -10,7 +10,8 @@ jQuery.fn.inji_inversion_menu = function(options) {
       font: '#fff', // цвет шрифта
       activeclass: 'active', //класс активного элемента
       cloneclass: 'inji_inversion_menu_clone', // класс клона меню
-      navcursorclass: 'inji_inversion_menu_navcursor' // класс курсора
+      navcursorclass: 'inji_inversion_menu_navcursor', // класс курсора
+      speed: 500 // скорость курсора в миллисекундах
     },options);
     return this.each(function() {
         var menu = jQuery(this);
@@ -64,7 +65,7 @@ jQuery.fn.inji_inversion_menu = function(options) {
                                 'width':jQuery(this).width() + parseInt( jQuery(this).css( 'paddingLeft' ) ) + parseInt ( jQuery(this).css( 'paddingRight' ) )
                             },
                             {
-                                duration:500,
+                                duration:options.speed,
                                 step: function(){
                                     clone.css( { 'marginLeft':'-' + navcursor.css('marginLeft'), 'marginTop':-( menu.height() + parseFloat( navcursor.css('marginTop') ) ) } );
                                 }
@@ -81,7 +82,7 @@ jQuery.fn.inji_inversion_menu = function(options) {
                                 'width':start.width
                             },
                             {
-                                duration:500,
+                                duration:options.speed,
                                 step: function(){
                                     clone.css( { 'marginLeft':'-'+navcursor.css('marginLeft'), 'marginTop':-( menu.height() + parseFloat( navcursor.css('marginTop') ) ) } );
                                 }
